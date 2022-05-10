@@ -17,12 +17,19 @@ const RoomsContainer: FC = () => {
     }
   }
 
+  console.log({ roomId, rooms });
+
   return (
     <nav>
       <div>
         <input ref={newRoomRef} placeholder={"Room name"} />
         <button onClick={handleCreateRoom}>CREATE ROOM</button>
       </div>
+      {Object.keys(rooms).map((key) => (
+        <div key={key}>
+          <span>{rooms[key].name}</span>
+        </div>
+      ))}
     </nav>
   );
 };
