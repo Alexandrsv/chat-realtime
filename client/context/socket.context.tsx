@@ -7,11 +7,7 @@ const socket = io(SOCKET_URL);
 const SocketContext = createContext({ socket });
 
 function SocketsProvider(props: any) {
-  return (
-    <SocketContext.Provider value={{ socket }}>
-      {props.children}
-    </SocketContext.Provider>
-  );
+  return <SocketContext.Provider value={{ socket }} {...props} />;
 }
 
 export const useSockets = () => useContext(SocketContext);
